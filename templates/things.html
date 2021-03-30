@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<h1>Item Page User: {{ name }}</h1>
 <form action="/things/" method="post">
     {% csrf_token %}
     <input type="text" name="stuff"><input type="submit" value="add">
@@ -12,5 +13,7 @@
 {% for i in things %}
 {{ i }}<br/>
 {% endfor %}
+</form>
+<a href="/">home</a>
 </body>
 </html>

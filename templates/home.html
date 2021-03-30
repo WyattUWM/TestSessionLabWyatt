@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<h1>Home Page</h1>
 <form action="/" method="post">
     {% csrf_token %}
     <table>
@@ -13,5 +14,6 @@
     </table>
     <input type="submit">
 </form>
+{{ message }}
 </body>
 </html>
