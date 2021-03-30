@@ -29,7 +29,7 @@ class Home(View):
 class Things(View):
     def get(self,request):
         m = request.session["name"]
-        things = map(str,list(Stuff.objects.filter(owner__name=m)))
+        things = list(map(str,Stuff.objects.filter(owner__name=m)))
         return render(request, "things.html", {"name":m, "things":things})
     def post(self,request):
         m = request.session["name"]
@@ -37,5 +37,5 @@ class Things(View):
         if s != '':
             newThing = Stuff(name=s,owner=MyUser.objects.get(name=m))
             newThing.save()
-        things = map(str,list(Stuff.objects.filter(owner__name=m)))
+        things = list(map(str,Stuff.objects.filter(owner__name=m)))
         return render(request, "things.html", {"name":m, "things":things})
